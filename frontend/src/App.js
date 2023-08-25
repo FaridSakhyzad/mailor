@@ -17,8 +17,12 @@ function App() {
     const storedHeaderIndex = parseInt(localStorage.getItem('storedHeaderIndex') || 0, 10);
     const storedBodyIndex = parseInt(localStorage.getItem('storedBodyIndex') || 0, 10);
 
-    const emailHeaders = await axios.get('http://localhost:3031/emailHeaders');
-    const emailBodies = await axios.get('http://localhost:3031/emailBodies');
+    const emailHeaders = await axios.get('http://localhost:3031/emailHeaders').catch((error) => { console.error('NETWORK ERROR', error) });
+    const emailBodies = await axios.get('http://localhost:3031/emailBodies').catch((error) => { console.error('NETWORK ERROR', error) });
+
+    if (!emailHeaders || !emailBodies) {
+      return;
+    }
 
     setEmailHeaders(emailHeaders.data);
     setEmailBodies(emailBodies.data);
@@ -144,7 +148,7 @@ function App() {
               <div className="header-filters">
                 <div className="row">
                   <div className="col-auto">
-                    <div className="row align-items-center">
+                    <div className="row align-items-center justify-content-center">
                       <div className="col-auto">Header + Footer</div>
                       <div className="col-auto">
                         {emailHeaders && (
