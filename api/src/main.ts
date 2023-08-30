@@ -1,12 +1,15 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { createConnection } from 'mysql';
+import { config } from 'dotenv';
+
+config();
 
 export const connection = createConnection({
   host: 'localhost',
   user: 'root',
   password: 'root',
-  database: 'cf-future'
+  database: 'cf-future',
 });
 
 connection.connect();
