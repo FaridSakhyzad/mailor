@@ -48,7 +48,7 @@ export class AppController {
   }
 
   @Post('/sendTemplate')
-  async sendTemplate(@Body() { html }) {
-    return await sendMail(html);
+  async sendTemplate(@Body() { html, receivers }) {
+    return await sendMail(html, receivers);
   }
 }

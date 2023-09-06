@@ -11,11 +11,15 @@ const transport = createTransport({
   },
 });
 
-export const sendMail = async (htmlData) => {
+export const sendMail = async (htmlData, receivers) => {
+  console.log('Sending Email.');
+
+  console.log(receivers);
+
   const info = await transport
     .sendMail({
       from: 'farid.sakhyzad@hotmail.com', // sender address
-      to: 'farid.sakhizad@hotmail.com', // list of receivers
+      to: receivers,
       subject: 'Hello ✔', // Subject line
       text: 'Hello world?', // plain text body
       html: htmlData, // html body
@@ -28,5 +32,6 @@ export const sendMail = async (htmlData) => {
       };
     });
 
+  console.log('Email Sent.');
   return info;
 };

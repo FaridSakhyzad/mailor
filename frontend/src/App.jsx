@@ -90,9 +90,18 @@ function App() {
     });
   };
 
+  const [receivers, setReceivers] = useState('');
+
   const sendTemplateToEmail = async () => {
+    console.log('sendTemplateToEmail', receivers);
+
+    if (!receivers.length) {
+      return null;
+    }
+
     const response = await axios.post('http://localhost:3031/sendTemplate', {
       html: getSrcDoc(),
+      receivers,
     });
 
     if (response.data.error) {
@@ -100,6 +109,7 @@ function App() {
       return null;
     }
 
+    alert('Email Sent');
     return response.data;
   };
 
@@ -136,6 +146,10 @@ function App() {
 
     const headerMarkupResponse = await fetchHeaderFile(emailBodies[templateIndex].email_template_header);
     setHeaderMarkup(headerMarkupResponse);
+  };
+
+  const handleEmailChange = ({ target: { value } }) => {
+    setReceivers(value);
   };
 
   return (
@@ -178,7 +192,13 @@ function App() {
               <div className="header-sendto">
                 <div className="row">
                   <div className="col-auto">
-                    <input type="email" placeholder="Email" className="form-control" />
+                    <input
+                      type="email"
+                      placeholder="Email"
+                      className="form-control"
+                      value={receivers}
+                      onChange={handleEmailChange}
+                    />
                   </div>
                   <div className="col-auto">
                     <button
