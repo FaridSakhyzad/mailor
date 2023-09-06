@@ -1,4 +1,7 @@
 import { createTransport } from 'nodemailer';
+import { config } from 'dotenv';
+
+config();
 
 const transport = createTransport({
   service: 'hotmail',
@@ -9,13 +12,21 @@ const transport = createTransport({
 });
 
 export const sendMail = async (htmlData) => {
-  const info = await transport.sendMail({
-    from: 'farid.sakhyzad@hotmail.com', // sender address
-    to: 'buterbread@gmail.com', // list of receivers
-    subject: 'Hello ✔', // Subject line
-    text: 'Hello world?', // plain text body
-    html: htmlData, // html body
-  });
+  const info = await transport
+    .sendMail({
+      from: 'farid.sakhyzad@hotmail.com', // sender address
+      to: 'farid.sakhizad@hotmail.com', // list of receivers
+      subject: 'Hello ✔', // Subject line
+      text: 'Hello world?', // plain text body
+      html: htmlData, // html body
+    })
+    .catch((err) => {
+      console.log('Error: ', err);
 
-  return `Message sent: ${info.messageId}`;
+      return {
+        error: err,
+      };
+    });
+
+  return info;
 };

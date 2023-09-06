@@ -45,11 +45,11 @@ function App() {
       return;
     }
 
-    if (!emailHeadersResponse[storedHeaderIndex]) {
+    if (!emailHeadersResponse.data[storedHeaderIndex]) {
       storedHeaderIndex = 0;
     }
 
-    if (!emailBodiesResponse[storedBodyIndex]) {
+    if (!emailBodiesResponse.data[storedBodyIndex]) {
       storedBodyIndex = 0;
     }
 
@@ -94,6 +94,11 @@ function App() {
     const response = await axios.post('http://localhost:3031/sendTemplate', {
       html: getSrcDoc(),
     });
+
+    if (response.data.error) {
+      alert('Error Sending Email');
+      return null;
+    }
 
     return response.data;
   };
