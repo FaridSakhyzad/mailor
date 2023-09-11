@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Param, Body } from '@nestjs/common';
 import { AppService } from './app.service';
 import { writeTemplateFileToDb } from './dbClient/writeEmailBody';
-import {writeHeaderFileToDb} from "./dbClient/writeHeader";
+import { writeHeaderFileToDb } from './dbClient/writeHeader';
 import { sendMail } from './emailClient/emailHelper';
 
 @Controller()
@@ -16,6 +16,16 @@ export class AppController {
   @Get('/emailHeaderFile/:id')
   getEmailHeaderFile(@Param('id') id) {
     return this.appService.getHeaderFromFile(id);
+  }
+
+  @Get('/getGlobalStyles')
+  getGlobalStyles() {
+    return this.appService.getGlobalStylesFile();
+  }
+
+  @Get('getLocalStyles/:id')
+  getLocalStyles(@Param('id') id) {
+    return this.appService.getLocalStylesFile(id);
   }
 
   @Get('/emailBodyFile/:id')

@@ -6,6 +6,8 @@ import './App.css';
 function App() {
   const [emailHeaders, setEmailHeaders] = useState();
   const [emailBodies, setEmailBodies] = useState();
+  const [globalStyles, setGlobalStyles] = useState();
+  const [localStyles, setLocalStyles] = useState();
 
   const [activeHeaderIndex, setActiveHeaderIndex] = useState(0);
   const [activeBodyIndex, setActiveBodyIndex] = useState(0);
@@ -41,7 +43,21 @@ function App() {
         console.error('NETWORK ERROR', error);
       });
 
-    if (!emailHeadersResponse || !emailBodiesResponse) {
+    const globalStylesResponse = await axios
+      .get('http://localhost:3031/getGlobalStyles')
+      .catch((error) => {
+        console.error('NETWORK ERROR', error);
+      });
+
+    const localStylesResponse = await axios
+      .get('http://localhost:3031/getLocalStyles')
+      .catch((error) => {
+        console.error('NETWORK ERROR', error);
+      });
+
+    console.log('localStylesResponse', localStylesResponse);
+
+    if (!emailHeadersResponse || !emailBodiesResponse || !globalStylesResponse) {
       return;
     }
 
@@ -52,6 +68,14 @@ function App() {
     if (!emailBodiesResponse.data[storedBodyIndex]) {
       storedBodyIndex = 0;
     }
+
+    if (localStylesResponse) {
+      setLocalStyles(localStylesResponse.data);
+    } else {
+      setLocalStyles('');
+    }
+
+    setGlobalStyles(globalStylesResponse.data);
 
     setEmailHeaders(emailHeadersResponse.data);
     setEmailBodies(emailBodiesResponse.data);
@@ -71,7 +95,7 @@ function App() {
       return '';
     }
 
-    return headerMarkup.replace('{CONTENT}', bodyMarkup);
+    return headerMarkup.replace('{GLOBAL_STYLE}', globalStyles).replace('{LOCAL_STYLE}', localStyles).replace('{CONTENT}', bodyMarkup);
   };
 
   const extractTemplates = async () => {
@@ -93,8 +117,6 @@ function App() {
   const [receivers, setReceivers] = useState('');
 
   const sendTemplateToEmail = async () => {
-    console.log('sendTemplateToEmail', receivers);
-
     if (!receivers.length) {
       return null;
     }
@@ -297,6 +319,7 @@ function App() {
                     <>
                       <h5>
                         Header + Footer:
+                        {' '}
                         <b>{emailHeaders[activeHeaderIndex].email_template_headers_name}</b>
                       </h5>
                       <hr />
@@ -323,6 +346,7 @@ function App() {
                     <>
                       <h5>
                         Body:
+                        {' '}
                         <b>{emailBodies[activeBodyIndex].email_template_name}</b>
                       </h5>
                       <hr />

@@ -2,8 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { getEmailHeaders } from './dbClient/readEmailHeaders';
 import { getEmailTemplates } from './dbClient/readEmailBodies';
 import { writeHeadersToFs, writeTemplatesToFs } from './writeFromDbToFs';
-import { readHeaderFromFs } from "./fsClient/readHeaderFromFs";
-import {readBodyFromFs} from "./fsClient/readBodyFromFs";
+import { readHeaderFromFs } from './fsClient/readHeaderFromFs';
+import { readBodyFromFs } from './fsClient/readBodyFromFs';
+import { readStylesFromFs } from './fsClient/readStylesFromFs';
+import { readLocalStylesFromFs } from './fsClient/readLocalStylesFromFs';
 
 @Injectable()
 export class AppService {
@@ -35,5 +37,13 @@ export class AppService {
 
   getBodyFromFile(id) {
     return readBodyFromFs(id);
+  }
+
+  getGlobalStylesFile() {
+    return readStylesFromFs();
+  }
+
+  getLocalStylesFile(id) {
+    return readLocalStylesFromFs(id);
   }
 }
