@@ -55,8 +55,6 @@ function App() {
         console.error('NETWORK ERROR', error);
       });
 
-    console.log('localStylesResponse', localStylesResponse);
-
     if (!emailHeadersResponse || !emailBodiesResponse || !globalStylesResponse) {
       return;
     }
