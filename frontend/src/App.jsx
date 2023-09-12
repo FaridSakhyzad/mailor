@@ -172,6 +172,16 @@ function App() {
     setReceivers(value);
   };
 
+  const bodiesByHeaderId = (headerId) => {
+    if (!emailBodies) {
+      return null;
+    }
+
+    return emailBodies.filter(({ email_template_header: emailTemplateHeader }) => emailTemplateHeader === headerId);
+  };
+
+  bodiesByHeaderId(12);
+
   return (
     <div className="App">
       <header className="header">
