@@ -162,7 +162,7 @@ function App() {
 
     setActiveHeaderIndex(headerIndex);
 
-    localStorage.setItem('storedHeaderIndex', emailBodies[templateIndex].email_template_header);
+    localStorage.setItem('storedHeaderIndex', headerIndex);
 
     const headerMarkupResponse = await fetchHeaderFile(emailBodies[templateIndex].email_template_header);
     setHeaderMarkup(headerMarkupResponse);
