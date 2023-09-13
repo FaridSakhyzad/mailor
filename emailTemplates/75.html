@@ -1,30 +1,29 @@
-<p class="header hello">HELLO {FIRST_NAME_UC},</p>
-<p>[[We are missing the artwork for your quote]] <a href="{HOME_URL}/my-project?view={QUOTE_ID}&utm_source={UTM_SOURCE}&utm_medium=email&utm_campaign={UTM_CAMPAIGN}&utm_content=quote_link" style="color: #1362c7">#{QUOTE_NUM}</a>.</p>
+<h2 class="titleH1">HELLO {FIRST_NAME_UC},</h2>
+<p class="para">[[We are missing the artwork for your quote]] <a href="{HOME_URL}/my-project?view={QUOTE_ID}&utm_source={UTM_SOURCE}&utm_medium=email&utm_campaign={UTM_CAMPAIGN}&utm_content=quote_link">#{QUOTE_NUM}</a>.</p>
 <table border="0" cellspacing="0" cellpadding="0">
-    <tr><td align="center" bgcolor="#E7534C" height="30">
-        <a href="{HOME_URL}/upload-artwork?{QUOTE_ORDER_L}={QUOTE_ID}&utm_source={UTM_SOURCE}&utm_medium=email&utm_campaign={UTM_CAMPAIGN}&utm_content=upload_artwork_button" class="btn_filled" style="font-size: 12px;font-family: 'Roboto', sans-serif; color: white !important; text-decoration: none; padding: 7px 12px; border: 1px solid #E7534C; font-weight: bold;">UPLOAD YOUR ARTWORK</a>
-    </td></tr>
-    <tr><td height="43">
-        {PROD_T1}
-        <p style="margin: 6px 0 17px;"><a href="{HOME_URL}/download?file={PRODUCT_TPL}&utm_source={UTM_SOURCE}&utm_medium=email&utm_campaign={UTM_CAMPAIGN}&utm_content=download_template_link" style="color: #e3534f!important;">Download Template</a></p>
-        {/PROD_T1}
-    </td></tr>
-</table>
-<table border="0" cellspacing="0" cellpadding="0" width="100%" class="product" style="padding: 0;overflow: hidden;">
-    <tr><td height="35">
-        <hr style="border-top: 1px dotted gray;margin-bottom: 26px;">
-    </td></tr>
-    <tr><td height="31">
-        <p class="header" style="margin-bottom: 11px;">DESIGN ASSISTANCE</p>
-    </td></tr>
-    <tr><td height="35">
-        <p style="margin-bottom: 15px;">Need help on your next design project? Schedule a free 15-minute consultation with our print project manger.</p>
-    </td></tr>
-    <tr><td height="52" valign="top">
-        <a href="https://calendly.com/companyfolders/design-services?utm_source={UTM_SOURCE}&utm_medium=email&utm_campaign={UTM_CAMPAIGN}&utm_content=design_consult_button" class="btn_empty" style="border:1px solid #E7534C;text-decoration:none;font-family:'Roboto', sans-serif;font-size:12px;line-height:16px;display:inline-block;padding:6px 12px;font-weight:bold;color:#E7534C !important;margin-bottom: 22px;">SCHEDULE DESIGN CONSULTATION</a>
+    <tr><td align="center" height="30">
+        <a class="button" href="{HOME_URL}/upload-artwork?{QUOTE_ORDER_L}={QUOTE_ID}&utm_source={UTM_SOURCE}&utm_medium=email&utm_campaign={UTM_CAMPAIGN}&utm_content=upload_artwork_button">UPLOAD YOUR ARTWORK</a>
     </td></tr>
     <tr>
-        <td height="33"><hr style="border-top: 1px dotted gray;margin-bottom: 24px;"></td>
+        <td height="43">
+        {PROD_T1}
+        <p class="para"><a href="{HOME_URL}/download?file={PRODUCT_TPL}&utm_source={UTM_SOURCE}&utm_medium=email&utm_campaign={UTM_CAMPAIGN}&utm_content=download_template_link">Download Template</a></p>
+        {/PROD_T1}
+        </td>
     </tr>
 </table>
-<p class="sign" style="margin-top:0;color:black;line-height: 20px;margin-bottom: 30px;">We are happy to help,<br><br>Print Project Team<br>Company Folders, Inc.</p>
+<hr class="horizontalLineMk1">
+<h2 class="titleH2">DESIGN ASSISTANCE</h2>
+<p class="para">Need help on your next design project? Schedule a free 15-minute consultation with our print project manger.</p>
+<table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>
+            <a href="https://calendly.com/companyfolders/design-services?utm_source={UTM_SOURCE}&utm_medium=email&utm_campaign={UTM_CAMPAIGN}&utm_content=design_consult_button" class="buttonAqua">SCHEDULE DESIGN CONSULTATION</a>
+        </td>
+    </tr>
+</table>
+<hr class="horizontalLineMk1">
+<div class="signature">
+    <p class="para">We are happy to help,</p>
+    <p class="para">Print Project Team<br>Company Folders, Inc.</p>
+</div>
