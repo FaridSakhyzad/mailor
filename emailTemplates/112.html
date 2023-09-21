@@ -1,55 +1,62 @@
 <p class="titleH1">HELLO {FIRST_NAME_UC},</p>
 <p class="para">We have received your artwork. Our team will review it and provide feedback about it within one business day.</p>
-<h1>{$myVar1024}</h1>
-<hr class="horizontalLineMk1">
 
-{ISSUES}
-<p class="titleH2">ISSUES THAT NEED YOUR ATTENTION</p>
-<hr class="horizontalLineMk1">
-<table border="0" cellspacing="0" cellpadding="0" width="100%" class="product" style="padding: 0; overflow: hidden;">
-    {ISSUES_1}
-    <tr>
-        <td>  <a href="https://stage.printwand.us/cf-dynamic/myorders?view={ID}&utm_source={UTM_SOURCE}&utm_medium=email&utm_campaign={UTM_CAMPAIGN}&utm_content=quote_order_link">{NUM}</a></td>
-        <td>Review the quote and its price</td>
-        <td align="center">
-            <a href="https://stage.printwand.us/cf-dynamic/myorders?view={ID}&utm_source={UTM_SOURCE}&utm_medium=email&utm_campaign={UTM_CAMPAIGN}&utm_content=see_issue_button" class="btn_empty" style="border:1px solid #E7534C;text-decoration:none;font-family:'Roboto', sans-serif;font-size:12px;line-height:16px;display:inline-block;padding:6px 12px;font-weight:bold;color:#E7534C !important;text-align: center;">SEE ISSUE</a>  
-        </td>
-    </tr>
-    <tr>
-        <td colspan="3"><hr class="horizontalLineMk1"></td>
-    </tr>
-    {/ISSUES_1}
-    {ISSUES_2}
-    <tr>
-        <td>  <a href="https://stage.printwand.us/cf-dynamic/myorders?view={ID}&utm_source={UTM_SOURCE}&utm_medium=email&utm_campaign={UTM_CAMPAIGN}&utm_content=quote_order_link">{NUM}</a></td>
-        <td>Answer the question to receive a quote</td>
-        <td align="center">
-            <a href="https://stage.printwand.us/cf-dynamic/myorders?view={ID}&utm_source={UTM_SOURCE}&utm_medium=email&utm_campaign={UTM_CAMPAIGN}&utm_content=see_issue_button" class="btn_empty" style="border:1px solid #E7534C;text-decoration:none;font-family:'Roboto', sans-serif;font-size:12px;line-height:16px;display:inline-block;padding:6px 12px;font-weight:bold;color:#E7534C !important;text-align: center;">SEE ISSUE</a>  
-        </td>
-    </tr>
-    <tr>
-        <td colspan="3"><hr class="horizontalLineMk1"></td>
-    </tr>
-    {/ISSUES_2}
-    {ISSUES_3}
-    <tr>
-        <td>  <a href="https://stage.printwand.us/cf-dynamic/myorders?view={ID}&utm_source={UTM_SOURCE}&utm_medium=email&utm_campaign={UTM_CAMPAIGN}&utm_content=quote_order_link">{NUM}</a></td>
-        <td>Add missing artwork</td>
-        <td align="center">
-            <a href="https://stage.printwand.us/cf-dynamic/myorders?view={ID}&utm_source={UTM_SOURCE}&utm_medium=email&utm_campaign={UTM_CAMPAIGN}&utm_content=see_issue_button" class="btn_empty" style="border:1px solid #E7534C;text-decoration:none;font-family:'Roboto', sans-serif;font-size:12px;line-height:16px;display:inline-block;padding:6px 12px;font-weight:bold;color:#E7534C !important;text-align: center;">SEE ISSUE</a>  
-        </td>
-    </tr>
-    {/ISSUES_3}
-</table>
-{/ISSUES}
-<hr class="horizontalLineMk1">
+{if $ISSUES_1 or $ISSUES_2 or $ISSUES_3}
+    <p class="titleH2">ISSUES THAT NEED YOUR ATTENTION</p>
+    <hr class="horizontalLineMk1">
+    <table border="0" cellspacing="0" cellpadding="0" width="100%" class="product" style="padding: 0; overflow: hidden;">
+        {if $ISSUES_1}
+            {foreach from=$ISSUES_1 item=issue}
+                <tr>
+                    <td>  <a href="{$HOME_URL}/my-project?view={$issue.form_quote_id}&utm_source={$UTM_SOURCE}&utm_medium=email&utm_campaign={$UTM_CAMPAIGN}&utm_content=quote_order_link">{$issue.form_quote_num}</a></td>
+                    <td>Review the quote and its price</td>
+                    <td align="center">
+                        <a href="{$HOME_URL}/my-project?view={$issue.form_quote_id}&utm_source={$UTM_SOURCE}&utm_medium=email&utm_campaign={$UTM_CAMPAIGN}&utm_content=see_issue_button" class="buttonAqua">SEE ISSUE</a>  
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"><hr class="horizontalLineMk1"></td>
+                </tr>
+            {/foreach}
+        {/if}
+        {if $ISSUES_2}
+            {foreach from=$ISSUES_2 item=issue}
+                <tr>
+                    <td>  <a href="{$HOME_URL}/my-project?view={$issue.form_quote_id}&utm_source={$UTM_SOURCE}&utm_medium=email&utm_campaign={$UTM_CAMPAIGN}&utm_content=quote_order_link">{$issue.form_quote_num}</a></td>
+                    <td>Answer the question to receive a quote</td>
+                    <td align="center">
+                        <a href="{$HOME_URL}/my-project?view={$issue.form_quote_id}&utm_source={$UTM_SOURCE}&utm_medium=email&utm_campaign={$UTM_CAMPAIGN}&utm_content=see_issue_button" class="buttonAqua">SEE ISSUE</a>  
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"><hr class="horizontalLineMk1"></td>
+                </tr>
+            {/foreach}
+        {/if}
+        {if $ISSUES_3}
+            {foreach from=$ISSUES_3 item=issue}
+                <tr>
+                    <td>  <a href="{$HOME_URL}/my-project?view={$issue.form_quote_id}&utm_source={$UTM_SOURCE}&utm_medium=email&utm_campaign={$UTM_CAMPAIGN}&utm_content=quote_order_link">{$issue.form_quote_num}</a></td>
+                    <td>Add missing artwork</td>
+                    <td align="center">
+                        <a href="{$HOME_URL}/my-project?view={$issue.form_quote_id}&utm_source={$UTM_SOURCE}&utm_medium=email&utm_campaign={$UTM_CAMPAIGN}&utm_content=see_issue_button" class="buttonAqua">SEE ISSUE</a>  
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"><hr class="horizontalLineMk1"></td>
+                </tr>
+            {/foreach}
+        {/if}
+    </table>
+{/if}
+
 <p class="titleH2">PROJECT ASSISTANCE</p>
 <p class="para">Need help on your project? Schedule a free 10-minute consultation with us.</p>
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tr>
         <td align="left">
-            <a href="https://calendly.com/vgendelman/project-consultation?utm_source={UTM_SOURCE}&utm_medium=email&utm_campaign={UTM_CAMPAIGN}&utm_content=project_consult_button" class="buttonAqua">SCHEDULE CONSULTATION</a>
+            <a href="https://calendly.com/vgendelman/project-consultation?utm_source={$UTM_SOURCE}&utm_medium=email&utm_campaign={$UTM_CAMPAIGN}&utm_content=project_consult_button" class="buttonAqua">SCHEDULE CONSULTATION</a>
         </td>
     </tr>
 </table>
