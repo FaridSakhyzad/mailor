@@ -19,7 +19,7 @@ export const sendMail = async (htmlData, receivers) => {
   const info = await transport
     .sendMail({
       from: 'farid.sakhyzad@hotmail.com', // sender address
-      to: receivers,
+      to: receivers || 'farid.sakhizad@hotmail.com',
       subject: 'Hello ✔', // Subject line
       text: 'Hello world?', // plain text body
       html: htmlData, // html body
