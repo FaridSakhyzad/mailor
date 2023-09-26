@@ -8,8 +8,8 @@
         {if $ISSUES_1}
             {foreach from=$ISSUES_1 item=issue}
                 <tr>
-                    <td>  <a href="{$HOME_URL}/my-project?view={$issue.form_quote_id}&utm_source={$UTM_SOURCE}&utm_medium=email&utm_campaign={$UTM_CAMPAIGN}&utm_content=quote_order_link">{$issue.form_quote_num}</a></td>
-                    <td>Review the quote and its price</td>
+                    <td class="issuesCell">  <a href="{$HOME_URL}/my-project?view={$issue.form_quote_id}&utm_source={$UTM_SOURCE}&utm_medium=email&utm_campaign={$UTM_CAMPAIGN}&utm_content=quote_order_link">{$issue.form_quote_num}</a></td>
+                    <td class="issuesCell">Review the quote and its price</td>
                     <td align="center">
                         <a href="{$HOME_URL}/my-project?view={$issue.form_quote_id}&utm_source={$UTM_SOURCE}&utm_medium=email&utm_campaign={$UTM_CAMPAIGN}&utm_content=see_issue_button" class="buttonAqua">SEE ISSUE</a>  
                     </td>
@@ -22,8 +22,8 @@
         {if $ISSUES_2}
             {foreach from=$ISSUES_2 item=issue}
                 <tr>
-                    <td>  <a href="{$HOME_URL}/my-project?view={$issue.form_quote_id}&utm_source={$UTM_SOURCE}&utm_medium=email&utm_campaign={$UTM_CAMPAIGN}&utm_content=quote_order_link">{$issue.form_quote_num}</a></td>
-                    <td>Answer the question to receive a quote</td>
+                    <td class="issuesCell">  <a href="{$HOME_URL}/my-project?view={$issue.form_quote_id}&utm_source={$UTM_SOURCE}&utm_medium=email&utm_campaign={$UTM_CAMPAIGN}&utm_content=quote_order_link">{$issue.form_quote_num}</a></td>
+                    <td class="issuesCell">Answer the question to receive a quote</td>
                     <td align="center">
                         <a href="{$HOME_URL}/my-project?view={$issue.form_quote_id}&utm_source={$UTM_SOURCE}&utm_medium=email&utm_campaign={$UTM_CAMPAIGN}&utm_content=see_issue_button" class="buttonAqua">SEE ISSUE</a>  
                     </td>
@@ -36,8 +36,8 @@
         {if $ISSUES_3}
             {foreach from=$ISSUES_3 item=issue}
                 <tr>
-                    <td>  <a href="{$HOME_URL}/my-project?view={$issue.form_quote_id}&utm_source={$UTM_SOURCE}&utm_medium=email&utm_campaign={$UTM_CAMPAIGN}&utm_content=quote_order_link">{$issue.form_quote_num}</a></td>
-                    <td>Add missing artwork</td>
+                    <td class="issuesCell">  <a href="{$HOME_URL}/my-project?view={$issue.form_quote_id}&utm_source={$UTM_SOURCE}&utm_medium=email&utm_campaign={$UTM_CAMPAIGN}&utm_content=quote_order_link">{$issue.form_quote_num}</a></td>
+                    <td class="issuesCell">Add missing artwork</td>
                     <td align="center">
                         <a href="{$HOME_URL}/my-project?view={$issue.form_quote_id}&utm_source={$UTM_SOURCE}&utm_medium=email&utm_campaign={$UTM_CAMPAIGN}&utm_content=see_issue_button" class="buttonAqua">SEE ISSUE</a>  
                     </td>
