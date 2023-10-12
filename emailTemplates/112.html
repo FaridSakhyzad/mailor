@@ -3,7 +3,7 @@
 
 {if $ISSUES_1 or $ISSUES_2 or $ISSUES_3}
     <p class="titleH2">ISSUES THAT NEED YOUR ATTENTION</p>
-    <hr class="horizontalLineMk1">
+    <hr class="horizontalLineMk1" style="margin: 10px 0 20px 0;">
     <table border="0" cellspacing="0" cellpadding="0" width="100%" class="issues">
         {if $ISSUES_1}
             {foreach from=$ISSUES_1 item=issue}
@@ -15,7 +15,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3"><hr class="horizontalLineMk1"></td>
+                    <td colspan="3"><hr class="horizontalLineMk1" style="margin: 20px 0"></td>
                 </tr>
             {/foreach}
         {/if}
@@ -29,7 +29,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3"><hr class="horizontalLineMk1"></td>
+                    <td colspan="3"><hr class="horizontalLineMk1" style="margin: 20px 0"></td>
                 </tr>
             {/foreach}
         {/if}
@@ -43,7 +43,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3"><hr class="horizontalLineMk1"></td>
+                    <td colspan="3"><hr class="horizontalLineMk1" style="margin: 20px 0"></td>
                 </tr>
             {/foreach}
         {/if}
@@ -53,7 +53,7 @@
 <p class="titleH2">PROJECT ASSISTANCE</p>
 <p class="para">Need help on your project? Schedule a free 10-minute consultation with us.</p>
 
-<table border="0" cellspacing="0" cellpadding="0">
+<table border="0" cellspacing="0" cellpadding="0" style="margin-bottom: 40px;">
     <tr>
         <td align="left">
             <a href="https://calendly.com/vgendelman/project-consultation?utm_source={$UTM_SOURCE}&utm_medium=email&utm_campaign={$UTM_CAMPAIGN}&utm_content=project_consult_button" class="buttonAqua">SCHEDULE CONSULTATION</a>
